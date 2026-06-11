@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import carRoutes from "./routes/carRoutes.js";
+import recommendRoutes from "./routes/recommendRoutes.js";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 
 //routes
 app.use("/api/cars", carRoutes);
+app.use("/api/recommend", recommendRoutes);
 
 app.get("/", (req, res) => {
   res.json({
