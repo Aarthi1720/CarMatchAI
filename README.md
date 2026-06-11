@@ -297,8 +297,6 @@ I would add:
 
 https://drive.google.com/file/d/1C2ADe2gh7fNdhXkbAApQAFXW8c18VoWE/view?usp=sharing
 
-Note: The recording is a full development session (~2h 35m). If Google Drive is still processing the video preview, the recording can be downloaded directly from the same link.
-
 ### GitHub Repository
 
 https://github.com/Aarthi1720/CarMatchAI
