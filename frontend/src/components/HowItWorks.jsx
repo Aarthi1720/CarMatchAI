@@ -1,11 +1,30 @@
-import React from 'react';
+export default function HowItWorks() {
+  const steps = [
+    "Describe your needs",
+    "AI analyzes priorities",
+    "Get top car matches",
+  ];
 
-const HowItWorks = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+  return (
+    <section className="py-12 px-6">
+      <h2 className="text-3xl font-bold text-center mb-10">
+        How It Works
+      </h2>
 
-export default HowItWorks;
+      <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {steps.map((step, index) => (
+          <div
+            key={index}
+            className="border rounded-xl p-6 shadow-sm"
+          >
+            <h3 className="font-semibold text-lg mb-2">
+              Step {index + 1}
+            </h3>
+
+            <p>{step}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
