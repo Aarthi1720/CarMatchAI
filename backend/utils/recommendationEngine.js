@@ -1,4 +1,4 @@
-const extractPreferences = (query) => {
+const extractPreferences = (query = "") => {
   const text = query.toLowerCase();
 
   const budgetMatch = text.match(/(\d+)/);
@@ -27,17 +27,21 @@ const extractPreferences = (query) => {
 };
 
 const generatePersonality = (prefs) => {
-  if (prefs.family && prefs.safety)
+  if (prefs.family && prefs.safety) {
     return "Safety First Family Planner";
+  }
 
-  if (prefs.mileage)
+  if (prefs.mileage) {
     return "Budget Conscious Commuter";
+  }
 
-  if (prefs.comfort)
+  if (prefs.comfort) {
     return "Comfort Seeking Explorer";
+  }
 
-  if (prefs.highway)
+  if (prefs.highway) {
     return "Highway Touring Enthusiast";
+  }
 
   return "Balanced Car Buyer";
 };
@@ -45,26 +49,33 @@ const generatePersonality = (prefs) => {
 const scoreCar = (car, prefs) => {
   let score = 0;
 
-  if (prefs.budget && car.price <= prefs.budget)
+  if (prefs.budget && car.price <= prefs.budget) {
     score += 20;
+  }
 
-  if (prefs.family && car.bestFor.includes("family"))
+  if (prefs.family && car.bestFor.includes("family")) {
     score += 15;
+  }
 
-  if (prefs.safety)
+  if (prefs.safety) {
     score += car.safety * 5;
+  }
 
-  if (prefs.mileage)
+  if (prefs.mileage) {
     score += car.mileage;
+  }
 
-  if (prefs.comfort)
+  if (prefs.comfort) {
     score += car.comfort * 4;
+  }
 
-  if (prefs.city && car.bestFor.includes("city"))
+  if (prefs.city && car.bestFor.includes("city")) {
     score += 10;
+  }
 
-  if (prefs.highway && car.bestFor.includes("highway"))
+  if (prefs.highway && car.bestFor.includes("highway")) {
     score += 10;
+  }
 
   return score;
 };
@@ -72,17 +83,21 @@ const scoreCar = (car, prefs) => {
 const buildReasons = (car, prefs) => {
   const reasons = [];
 
-  if (prefs.safety)
+  if (prefs.safety) {
     reasons.push(`Safety rating: ${car.safety}/5`);
+  }
 
-  if (prefs.mileage)
+  if (prefs.mileage) {
     reasons.push(`Mileage: ${car.mileage} km/l`);
+  }
 
-  if (prefs.family)
+  if (prefs.family) {
     reasons.push("Suitable for family usage");
+  }
 
-  if (prefs.comfort)
+  if (prefs.comfort) {
     reasons.push(`Comfort rating: ${car.comfort}/5`);
+  }
 
   return reasons;
 };
@@ -106,17 +121,37 @@ export const getRecommendations = (cars, query) => {
   const recommendations = scoredCars
     .slice(0, 3)
     .map((car) => ({
-      ...car,
+      name: car.name,
+      brand: car.brand,
+      price: car.price,
+      fuelType: car.fuelType,
+      mileage: car.mileage,
+      safety: car.safety,
+      comfort: car.comfort,
+      type: car.type,
+      image: car.image,
+      matchScore: car.matchScore,
       reasons: buildReasons(car, prefs),
       tradeOffs: buildTradeOffs(car),
     }));
 
   const whyNotOthers = scoredCars
     .slice(3, 6)
-    .map(
-      (car) =>
-        `${car.name} was not selected because it scored lower against your priorities.`
-    );
+    .map((car) => {
+      if (prefs.safety && car.safety < 5) {
+        return `${car.name} was not selected because it offers lower safety ratings than the top recommendations.`;
+      }
+
+      if (prefs.mileage && car.mileage < 18) {
+        return `${car.name} was not selected because it delivers lower mileage than the top recommendations.`;
+      }
+
+      if (prefs.budget && car.price > prefs.budget) {
+        return `${car.name} was not selected because it exceeds your budget.`;
+      }
+
+      return `${car.name} was not selected because it matched fewer of your priorities.`;
+    });
 
   return {
     personality,
