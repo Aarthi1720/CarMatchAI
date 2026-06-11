@@ -7,7 +7,7 @@ export default function HowItWorks() {
 
   return (
     <section className="py-12 px-6">
-      <h2 className="text-3xl font-bold text-center mb-10">
+      <h2 className="text-3xl font-bold text-center mb-10 text-gray-600">
         How It Works
       </h2>
 
@@ -15,13 +15,13 @@ export default function HowItWorks() {
         {steps.map((step, index) => (
           <div
             key={index}
-            className="border rounded-xl p-6 shadow-sm"
+            className="border border-gray-300 rounded-xl p-6 shadow-sm"
           >
-            <h3 className="font-semibold text-lg mb-2">
+            <h3 className="font-semibold text-lg mb-2 text-cyan-900">
               Step {index + 1}
             </h3>
 
-            <p>{step}</p>
+            <p className="text-gray-700">{step}</p>
           </div>
         ))}
       </div>

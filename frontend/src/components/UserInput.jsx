@@ -21,7 +21,7 @@ export default function UserInput({ onSubmit }) {
   return (
     <section className="py-16 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4">
+        <h2 className="text-4xl font-bold text-center mb-4 text-blue-800">
           Describe Your Needs
         </h2>
 
@@ -52,7 +52,7 @@ export default function UserInput({ onSubmit }) {
 
           <button
             type="submit"
-            className="mt-5 w-full bg-blue-600 text-white py-4 rounded-2xl font-semibold text-lg hover:bg-blue-700 transition"
+            className="mt-5 w-full bg-blue-400 text-white py-4 rounded-2xl font-semibold text-lg hover:bg-blue-700 transition"
           >
             Find My Perfect Car
           </button>

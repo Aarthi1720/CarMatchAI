@@ -1,52 +1,37 @@
 const extractPreferences = (query = "") => {
   const text = query.toLowerCase();
 
-  const budgetMatch = text.match(
-  /(budget|under|within)\s*(₹)?\s*(\d+)/i
-);
+  const budgetMatch = text.match(/(budget|under|within)\s*(₹)?\s*(\d+)/i);
 
   return {
-    budget: budgetMatch
-  ? Number(budgetMatch[3])
-  : null,
+    budget: budgetMatch ? Number(budgetMatch[3]) : null,
 
-    family:
-      /(family|kids|children|wife|husband|parents)/.test(text),
+    family: /(family|kids|children|wife|husband|parents)/.test(text),
 
-    safety:
-      /(safe|safety|secure|safest)/.test(text),
+    safety: /(safe|safety|secure|safest)/.test(text),
 
-    mileage:
-      /(mileage|fuel efficient|economical|fuel economy)/.test(text),
+    mileage: /(mileage|fuel efficient|economical|fuel economy)/.test(text),
 
-    comfort:
-      /(comfort|comfortable|spacious|luxury)/.test(text),
+    comfort: /(comfort|comfortable|spacious|luxury)/.test(text),
 
-    city:
-      /(city|traffic|daily commute)/.test(text),
+    city: /(city|traffic|daily commute)/.test(text),
 
-    highway:
-      /(highway|long drive|road trip)/.test(text),
+    highway: /(highway|long drive|road trip)/.test(text),
   };
 };
 
 const generatePersonality = (prefs) => {
-  if (prefs.family && prefs.safety)
-  return "Safety First Family Planner";
+  if (prefs.family && prefs.safety) return "Safety First Family Planner";
 
-if (prefs.safety)
-  return "Safety-Focused Buyer";
+  if (prefs.safety) return "Safety-Focused Buyer";
 
-if (prefs.mileage)
-  return "Budget Conscious Commuter";
+  if (prefs.mileage) return "Budget Conscious Commuter";
 
-if (prefs.comfort)
-  return "Comfort Seeking Explorer";
+  if (prefs.comfort) return "Comfort Seeking Explorer";
 
-if (prefs.highway)
-  return "Highway Touring Enthusiast";
+  if (prefs.highway) return "Highway Touring Enthusiast";
 
-return "Balanced Car Buyer";
+  return "Balanced Car Buyer";
 };
 
 const scoreCar = (car, prefs) => {
@@ -117,55 +102,51 @@ export const getRecommendations = (cars, query) => {
 
   const personality = generatePersonality(prefs);
 
-const scoredCars = cars.map((car) => {
-  const score = scoreCar(car, prefs);
+  const scoredCars = cars.map((car) => {
+    const score = scoreCar(car, prefs);
 
-  console.log(car.name, score);
+    console.log(car.name, score);
 
-  return {
-    ...car.toObject(),
-    matchScore: score,
-  };
-});
+    return {
+      ...car.toObject(),
+      matchScore: score,
+    };
+  });
 
   scoredCars.sort((a, b) => b.matchScore - a.matchScore);
 
-  const recommendations = scoredCars
-    .slice(0, 3)
-    .map((car) => ({
-      name: car.name,
-      brand: car.brand,
-      price: car.price,
-      fuelType: car.fuelType,
-      mileage: car.mileage,
-      safety: car.safety,
-      comfort: car.comfort,
-      type: car.type,
-      image: car.image,
-      matchScore: car.matchScore,
-      reasons: buildReasons(car, prefs),
-      tradeOffs: buildTradeOffs(car),
-    }));
+  const recommendations = scoredCars.slice(0, 3).map((car) => ({
+    name: car.name,
+    brand: car.brand,
+    price: car.price,
+    fuelType: car.fuelType,
+    mileage: car.mileage,
+    safety: car.safety,
+    comfort: car.comfort,
+    type: car.type,
+    image: car.image,
+    matchScore: car.matchScore,
+    reasons: buildReasons(car, prefs),
+    tradeOffs: buildTradeOffs(car),
+  }));
 
-  const whyNotOthers = scoredCars
-    .slice(3, 6)
-    .map((car) => {
-      if (prefs.safety && car.safety < 5) {
-        return `${car.name} was not selected because it offers lower safety ratings than the top recommendations.`;
-      }
+  const whyNotOthers = scoredCars.slice(3, 6).map((car) => {
+    if (prefs.safety && car.safety < 5) {
+      return `${car.name} was not selected because it offers lower safety ratings than the top recommendations.`;
+    }
 
-      if (prefs.mileage && car.mileage < 18) {
-        return `${car.name} was not selected because it delivers lower mileage than the top recommendations.`;
-      }
+    if (prefs.mileage && car.mileage < 18) {
+      return `${car.name} was not selected because it delivers lower mileage than the top recommendations.`;
+    }
 
-      if (prefs.budget && car.price > prefs.budget) {
-        return `${car.name} was not selected because it exceeds your budget.`;
-      }
+    if (prefs.budget && car.price > prefs.budget) {
+      return `${car.name} was not selected because it exceeds your budget.`;
+    }
 
-      return `${car.name} was not selected because it matched fewer of your priorities.`;
-    });
+    return `${car.name} was not selected because it matched fewer of your priorities.`;
+  });
 
-    console.log("Recommendations:", recommendations);
+  console.log("Recommendations:", recommendations);
 
   return {
     personality,

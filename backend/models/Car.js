@@ -18,7 +18,7 @@ const carSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 export default mongoose.model("Car", carSchema);

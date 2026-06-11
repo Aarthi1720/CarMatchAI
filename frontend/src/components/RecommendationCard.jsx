@@ -1,6 +1,6 @@
 export default function RecommendationCard({ car, index }) {
   const badges = ["🥇 Best Match", "🥈 Runner Up", "🥉 Alternative Pick"];
-    console.log(car);
+  console.log(car);
 
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
@@ -28,11 +28,11 @@ export default function RecommendationCard({ car, index }) {
           </span>
         </div>
 
-        <h3 className="text-2xl font-bold">{car.name}</h3>
+        <h3 className="text-2xl font-bold text-gray-700">{car.name}</h3>
 
         <p className="text-gray-500 mb-4">{car.brand}</p>
 
-        <div className="space-y-2 text-sm">
+        <div className="space-y-2 text-sm font-medium text-gray-600">
           <p>💰 Price: ₹{car.price} Lakh</p>
           <p>⛽ Fuel: {car.fuelType}</p>
           <p>🛡️ Safety: {car.safety}/5</p>
@@ -41,7 +41,7 @@ export default function RecommendationCard({ car, index }) {
         <div className="mt-5">
           <h4 className="font-semibold mb-2">Why It Matches</h4>
 
-          <ul className="space-y-1 text-sm text-gray-700">
+          <ul className="space-y-1 text-sm font-medium text-gray-600">
             {car.reasons.map((reason, index) => (
               <li key={index}>✅ {reason}</li>
             ))}
@@ -51,7 +51,7 @@ export default function RecommendationCard({ car, index }) {
         <div className="mt-5">
           <h4 className="font-semibold mb-2">Trade-offs</h4>
 
-          <ul className="space-y-1 text-sm text-red-600">
+          <ul className="space-y-1 text-sm text-red-600 font-medium">
             {car.tradeOffs.map((tradeoff, index) => (
               <li key={index}>⚠️ {tradeoff}</li>
             ))}
