@@ -295,16 +295,16 @@ I would add:
 
 ### Screen Recording
 
-Add Loom / YouTube / Drive link here.
+https://drive.google.com/file/d/1C2ADe2gh7fNdhXkbAApQAFXW8c18VoWE/view?usp=sharing
 
 ### GitHub Repository
 
-Add GitHub repository link here.
+https://github.com/Aarthi1720/CarMatchAI
 
 ### Live Application
 
 Frontend:
-Add Vercel URL here.
+https://car-match-ai-brown.vercel.app/
 
 Backend:
-Add Render URL here.
+https://carmatchai-mlrg.onrender.com/

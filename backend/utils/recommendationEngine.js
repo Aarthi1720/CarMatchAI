@@ -97,15 +97,10 @@ const buildTradeOffs = (car) => {
 export const getRecommendations = (cars, query) => {
   const prefs = extractPreferences(query);
 
-  console.log("Query:", query);
-  console.log("Preferences:", prefs);
-
   const personality = generatePersonality(prefs);
 
   const scoredCars = cars.map((car) => {
     const score = scoreCar(car, prefs);
-
-    console.log(car.name, score);
 
     return {
       ...car.toObject(),
@@ -145,8 +140,6 @@ export const getRecommendations = (cars, query) => {
 
     return `${car.name} was not selected because it matched fewer of your priorities.`;
   });
-
-  console.log("Recommendations:", recommendations);
 
   return {
     personality,

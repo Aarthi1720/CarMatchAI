@@ -1,6 +1,5 @@
 export default function RecommendationCard({ car, index }) {
   const badges = ["🥇 Best Match", "🥈 Runner Up", "🥉 Alternative Pick"];
-  console.log(car);
 
   return (
     <div className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">

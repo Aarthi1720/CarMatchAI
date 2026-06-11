@@ -34,7 +34,7 @@ export default function UserInput({ onSubmit }) {
             <button
               key={prompt}
               onClick={() => setQuery(prompt)}
-              className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition"
+              className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full hover:bg-blue-200 transition hover:cursor-pointer"
             >
               {prompt}
             </button>
@@ -47,12 +47,12 @@ export default function UserInput({ onSubmit }) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="I have a family of 4. My budget is 15 lakh. Safety and mileage are important."
-            className="w-full bg-white border border-gray-300 rounded-2xl p-5 shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-200 text-lg"
+            className="w-full bg-white border border-gray-300 rounded-2xl p-5 shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-200 text-lg text-gray-600"
           />
 
           <button
             type="submit"
-            className="mt-5 w-full bg-blue-400 text-white py-4 rounded-2xl font-semibold text-lg hover:bg-blue-700 transition"
+            className="mt-5 w-full bg-blue-400 text-white py-4 rounded-2xl font-semibold text-lg hover:bg-blue-700 transition hover:cursor-pointer"
           >
             Find My Perfect Car
           </button>

@@ -43,9 +43,7 @@ function App() {
 
       {result && (
         <>
-          <PersonalityCard
-            personality={result.personality}
-          />
+          <PersonalityCard personality={result.personality} />
 
           <section className="max-w-6xl mx-auto px-6 py-10">
             <h2 className="text-3xl font-bold mb-8 text-gray-700">
@@ -54,21 +52,15 @@ function App() {
 
             <div className="grid md:grid-cols-3 gap-6">
               {result.recommendations.map((car, index) => (
-                <RecommendationCard
-  key={car.name}
-  car={car}
-  index={index}
-/>
+                <RecommendationCard key={car.name} car={car} index={index} />
               ))}
             </div>
           </section>
 
-          <WhyNotOthers
-            items={result.whyNotOthers}
-          />
+          <WhyNotOthers items={result.whyNotOthers} />
         </>
       )}
-      <Footer/>
+      <Footer />
     </main>
   );
 }

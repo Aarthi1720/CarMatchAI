@@ -91,7 +91,7 @@ const cars = [
     bestFor: ["family", "comfort", "highway"],
     pros: ["Premium cabin", "Comfortable ride", "Feature rich"],
     cons: ["Higher price", "Safety not class leading"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e",
   },
   {
     name: "Kia Seltos",
@@ -106,7 +106,7 @@ const cars = [
     bestFor: ["comfort", "family", "highway"],
     pros: ["Premium interior", "Loaded features", "Good comfort"],
     cons: ["Expensive variants", "Average mileage"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1502877338535-766e1452684a",
   },
   {
     name: "Honda Elevate",
@@ -121,7 +121,7 @@ const cars = [
     bestFor: ["family", "safety", "highway"],
     pros: ["Reliable engine", "Strong safety", "Spacious"],
     cons: ["Feature list shorter", "No diesel"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7",
   },
   {
     name: "Grand Vitara",
@@ -136,7 +136,7 @@ const cars = [
     bestFor: ["mileage", "family", "city"],
     pros: ["Excellent mileage", "Low maintenance", "Hybrid option"],
     cons: ["Performance average", "Interior quality average"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c",
   },
   {
     name: "Toyota Hyryder",
@@ -151,7 +151,7 @@ const cars = [
     bestFor: ["mileage", "family", "city"],
     pros: ["Toyota reliability", "Great mileage", "Hybrid technology"],
     cons: ["Less powerful engine", "Expensive top variants"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
   },
   {
     name: "Tata Punch",
@@ -166,7 +166,7 @@ const cars = [
     bestFor: ["city", "safety", "budget"],
     pros: ["Affordable", "5-star safety", "Compact"],
     cons: ["Rear seat space limited", "Engine performance average"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341",
   },
   {
     name: "Hyundai Exter",
@@ -181,7 +181,7 @@ const cars = [
     bestFor: ["city", "budget", "comfort"],
     pros: ["Modern features", "Easy city driving", "Value for money"],
     cons: ["Not very spacious", "Highway performance average"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d",
   },
   {
     name: "Kia Sonet",
@@ -196,7 +196,7 @@ const cars = [
     bestFor: ["city", "comfort", "family"],
     pros: ["Feature loaded", "Good styling", "Comfortable"],
     cons: ["Rear seat slightly cramped", "Mileage average"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1553440569-bcc63803a83d",
   },
   {
     name: "Tata Curvv",
@@ -211,7 +211,7 @@ const cars = [
     bestFor: ["safety", "comfort", "family"],
     pros: ["Modern design", "High safety", "Premium feel"],
     cons: ["New model", "Long-term reliability unknown"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1489824904134-891ab64532f1",
   },
   {
     name: "Hyundai Verna",
@@ -226,7 +226,7 @@ const cars = [
     bestFor: ["comfort", "highway", "family"],
     pros: ["Premium sedan", "Excellent comfort", "Strong safety"],
     cons: ["Low ground clearance", "Sedan limitations"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa",
   },
   {
     name: "Skoda Slavia",
@@ -241,7 +241,7 @@ const cars = [
     bestFor: ["highway", "comfort", "performance"],
     pros: ["Strong build quality", "Great highway manners", "Premium"],
     cons: ["Maintenance cost higher", "Service network smaller"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1494905998402-395d579af36f",
   },
   {
     name: "Volkswagen Virtus",
@@ -256,7 +256,7 @@ const cars = [
     bestFor: ["highway", "performance", "comfort"],
     pros: ["Excellent build quality", "Fun to drive", "Premium cabin"],
     cons: ["Higher maintenance", "Expensive variants"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
   },
   {
     name: "Mahindra Scorpio N",
@@ -271,7 +271,7 @@ const cars = [
     bestFor: ["family", "highway", "adventure"],
     pros: ["Powerful engine", "Road presence", "Strong safety"],
     cons: ["Mileage lower", "Large for city use"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b",
   },
   {
     name: "Mahindra XUV700",
@@ -286,7 +286,7 @@ const cars = [
     bestFor: ["family", "safety", "comfort"],
     pros: ["Advanced safety", "Premium features", "Spacious"],
     cons: ["Mileage lower", "Higher price"],
-    image: "",
+    image: "https://images.unsplash.com/photo-1508974239320-0a029497e820",
   },
 ];
 
