@@ -1,8 +1,8 @@
 export default function HowItWorks() {
   const steps = [
-    "Describe your needs",
-    "AI analyzes priorities",
-    "Get top car matches",
+    "📝 Describe Your Lifestyle Tell us your budget, family size, driving habits and preferences.",
+    "🧠 AI Recommendation Engine Our intelligent scoring system analyzes your priorities.",
+    "🚗 Get Personalized Matches Receive tailored recommendations with explanations and trade-offs.",
   ];
 
   return (

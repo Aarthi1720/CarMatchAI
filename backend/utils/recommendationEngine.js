@@ -1,10 +1,14 @@
 const extractPreferences = (query = "") => {
   const text = query.toLowerCase();
 
-  const budgetMatch = text.match(/(\d+)/);
+  const budgetMatch = text.match(
+  /(budget|under|within)\s*(₹)?\s*(\d+)/i
+);
 
   return {
-    budget: budgetMatch ? Number(budgetMatch[1]) : null,
+    budget: budgetMatch
+  ? Number(budgetMatch[3])
+  : null,
 
     family:
       /(family|kids|children|wife|husband|parents)/.test(text),
@@ -27,23 +31,22 @@ const extractPreferences = (query = "") => {
 };
 
 const generatePersonality = (prefs) => {
-  if (prefs.family && prefs.safety) {
-    return "Safety First Family Planner";
-  }
+  if (prefs.family && prefs.safety)
+  return "Safety First Family Planner";
 
-  if (prefs.mileage) {
-    return "Budget Conscious Commuter";
-  }
+if (prefs.safety)
+  return "Safety-Focused Buyer";
 
-  if (prefs.comfort) {
-    return "Comfort Seeking Explorer";
-  }
+if (prefs.mileage)
+  return "Budget Conscious Commuter";
 
-  if (prefs.highway) {
-    return "Highway Touring Enthusiast";
-  }
+if (prefs.comfort)
+  return "Comfort Seeking Explorer";
 
-  return "Balanced Car Buyer";
+if (prefs.highway)
+  return "Highway Touring Enthusiast";
+
+return "Balanced Car Buyer";
 };
 
 const scoreCar = (car, prefs) => {
@@ -109,12 +112,21 @@ const buildTradeOffs = (car) => {
 export const getRecommendations = (cars, query) => {
   const prefs = extractPreferences(query);
 
+  console.log("Query:", query);
+  console.log("Preferences:", prefs);
+
   const personality = generatePersonality(prefs);
 
-  const scoredCars = cars.map((car) => ({
+const scoredCars = cars.map((car) => {
+  const score = scoreCar(car, prefs);
+
+  console.log(car.name, score);
+
+  return {
     ...car.toObject(),
-    matchScore: scoreCar(car, prefs),
-  }));
+    matchScore: score,
+  };
+});
 
   scoredCars.sort((a, b) => b.matchScore - a.matchScore);
 
@@ -152,6 +164,8 @@ export const getRecommendations = (cars, query) => {
 
       return `${car.name} was not selected because it matched fewer of your priorities.`;
     });
+
+    console.log("Recommendations:", recommendations);
 
   return {
     personality,
